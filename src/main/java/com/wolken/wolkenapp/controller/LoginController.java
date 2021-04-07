@@ -7,25 +7,22 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.wolken.wolkenapp.dto.UserDTO;
-import com.wolken.wolkenapp.service.UserService;
+import com.wolken.wolkenapp.dto.LoginDTO;
+import com.wolken.wolkenapp.service.LoginService;
 
 @Component
 @RequestMapping("/")
-public class UserController {
+public class LoginController {
 
 	@Autowired
-	UserService userService;
-	
-		
-	@RequestMapping("/register.do")
-	public String register(@ModelAttribute UserDTO userDTO,HttpServletRequest req) {
-		
-		String msg = userService.validateAndRegisterUser(userDTO);
-		
+	LoginService loginService;
+
+	@RequestMapping("/login.do")
+	public String login(@ModelAttribute LoginDTO loginDTO, HttpServletRequest req) {
+		String msg=loginService.validateAndLogin(loginDTO);
 		req.setAttribute("msg", msg);
+		
 		return "final.jsp";
-		
-		
 	}
+
 }

@@ -4,5 +4,7 @@
 
 <a href="registrationPage.jsp"> REGISTER</a>
 
+<a href="loginPage.jsp"> LOGIN</a>
+
 </body>
 </html>

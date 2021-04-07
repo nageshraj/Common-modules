@@ -8,11 +8,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.stereotype.Component;
 
-import com.wolken.wolkenapp.dto.UserDTO;
 import com.wolken.wolkenapp.entity.UserEntity;
 
 @Component
-public class UserDAOImpl implements UserDAO {
+public class RegistrationDAOImpl implements RegistrationDAO {
 
 	@Autowired
 	LocalSessionFactoryBean bean;

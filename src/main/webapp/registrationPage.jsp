@@ -162,8 +162,8 @@ margin-right: 20px;
 
 	<div class="header">
 		<nav>
-		<div class="headerLeft"> <a href="https://web.whatsapp.com/">HOME </a></div>
-			<div class="headerRight"> <a href="https://web.whatsapp.com/">SIGN OUT </a></div> 
+		<div class="headerLeft"> <a href="http://localhost:8080/common-module-registration/">HOME </a></div>
+			<div class="headerRight"> <a href="http://localhost:8080/common-module-registration/loginPage.jsp">LOGIN </a></div> 
 		</nav>
 
 	</div>
