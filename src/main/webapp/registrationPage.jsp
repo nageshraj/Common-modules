@@ -6,6 +6,7 @@
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 
+
 <script type="text/javascript">
 	function formValidation() {
 		var uName = document.registration.userName;
@@ -105,64 +106,14 @@
 	}
 </script>
 
-<style type="text/css">
-body {
-	padding-top: 80px;
-	padding-bottom: 40px;
-	text-align: center;
-}
-
-.header {
-	width: 100%;
-	position: fixed;
-	background: #333;
-	padding: 10px 0;
-	color: #fff;
-	top: 0;
-}
-
-.footer {
-	position: fixed;
-	left: 0;
-	bottom: 0;
-	width: 100%;
-	background-color: red;
-	color: white;
-	text-align: center;
-}
-
-a {
-	color: white;
-}
-
- input[type = submit], input[type = reset] {
-            background-color: grey;
-            border: none;
-            text-decoration: none;
-            color: white;
-            padding: 20px 20px;
-            margin: 20px 20px;
-            cursor: pointer;
-         }
-         
- .headerLeft{
- text-align: left;
- margin-left: 20px;
- }
-
-.headerRight{
-text-align: right;
-margin-right: 20px;
-}
-
-</style>
+<link rel="stylesheet" href="style.css">
 
 </head>
 <body>
 
 	<div class="header">
 		<nav>
-		<div class="headerLeft"> <a href="http://localhost:8080/common-module-registration/">HOME </a></div>
+		<div class="headerLeft"> <a href="http://localhost:8080/common-module-registration/">WOLKEN </a></div>
 			<div class="headerRight"> <a href="http://localhost:8080/common-module-registration/loginPage.jsp">LOGIN </a></div> 
 		</nav>
 
@@ -173,13 +124,13 @@ margin-right: 20px;
 
 		<div class="container">
 			<div class="row">
-				USERNAME: <input type="text" name="userName" size="30">
-				EMAIL ID: <input type="text" name="userEmailId" size="30">
+				USERNAME: <input type="text" name="userName" size="41"><br><br>
+				EMAIL ID: <input type="text" name="userEmailId" size="41">
 			</div>
 			<br>
 			<div class="row">
-				PHONE NUMBER: <input type="text" name="userPhoneNumber" size="30">
-				DATE-OF-BIRTH: <input type="date" name="userDOB">
+				PHONE NUMBER: <input type="text" name="userPhoneNumber" size="35"><br><br>
+				DATE-OF-BIRTH: <input type="date" name="userDOB" style="width:241px">
 			</div>
 			<div class="row">
 			<br> GENDER: <input type="radio" name="gender" value="male">
@@ -188,10 +139,11 @@ margin-right: 20px;
 				type="radio" name="gender" value="other"> <label for="other">OTHER</label><br><br>
 				
 			</div>
+			<br>
 			<div class="row">
-			PASSWORD: <input type="password" name="userPassword" size="42"><br><br>
+			PASSWORD: <input type="password" name="userPassword" size="40"><br><br>
 			CONFIRM PASSWORD: <input type="password" name="confirmUserPassword"
-				size="30">
+				size="28">
 				</div>
 				<br> <br> <br> <input type="reset"
 				value="RESET"> <input type="submit" name="submit"
@@ -200,7 +152,7 @@ margin-right: 20px;
 	</form>
 
 	<div class="footer">
-		<pre>CONTACT US                                               since 2021                                           © All rights reserved</pre>
+		<pre>CONTACT US                                                 since 2021                                           © All rights reserved</pre>
 	</div>
 
 </body>

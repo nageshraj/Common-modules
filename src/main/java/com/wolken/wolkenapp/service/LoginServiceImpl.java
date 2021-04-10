@@ -1,5 +1,6 @@
 package com.wolken.wolkenapp.service;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,21 +13,26 @@ public class LoginServiceImpl implements LoginService {
 
 	@Autowired
 	LoginDAO loginDAO;
+	
+	Logger logger = Logger.getLogger("GetProductsByTypeServiceImpl");
+
 
 	@Override
-	public String validateAndLogin(LoginDTO loginDTO) {
+	public LoginEntity validateAndLogin(LoginDTO loginDTO) {
+		
+		logger.debug("INSIDE validateAndLogin");
 
 		LoginEntity loginEntity = loginDAO.getByUserName(loginDTO.getLoginUserName());
 		if (loginEntity != null) {
 			if (loginDTO.getLoginUserName().equals(loginEntity.getUserName())) {
 				if (loginDTO.getLoginUserPassword().equals(loginEntity.getUserPassword())) {
-					return "LOGIN SUCCESSFUL";
+					return loginEntity;
 				}
 			} else {
-				return "USERNAME/PASSWORD INCORRECT";
+				return null;
 			}
 		} 
-		return "USERNAME/PASSWORD INCORRECT";
+		return null;
 
 	}
 

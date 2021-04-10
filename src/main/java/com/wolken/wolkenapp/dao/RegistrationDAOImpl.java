@@ -1,5 +1,6 @@
 package com.wolken.wolkenapp.dao;
 
+import org.apache.log4j.Logger;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -15,10 +16,15 @@ public class RegistrationDAOImpl implements RegistrationDAO {
 
 	@Autowired
 	LocalSessionFactoryBean bean;
+	
+	Logger logger = Logger.getLogger("RegistrationDAOImpl");
+
 
 	@Override
 	public String registerUser(UserEntity userEntity) {
 		// TODO Auto-generated method stub
+		
+		logger.debug("INSIDE registerUser()");
 		
 		SessionFactory factory = bean.getObject();
 		Session session = factory.openSession();

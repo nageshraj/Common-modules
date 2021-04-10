@@ -16,6 +16,8 @@
 			<list>
 				<value> com.wolken.wolkenapp.entity.UserEntity</value>
 				<value> com.wolken.wolkenapp.entity.LoginEntity</value>
+				<value>com.wolken.wolkenapp.entity.EditProfileEntity</value>
+				<value>com.wolken.wolkenapp.entity.AddProductEntity</value>
 
 			</list>
 		</property>

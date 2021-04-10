@@ -1,5 +1,7 @@
 package com.wolken.wolkenapp.dao;
 
+import java.util.List;
+
 import org.apache.log4j.Logger;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -9,35 +11,36 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.stereotype.Component;
 
-import com.wolken.wolkenapp.entity.LoginEntity;
+import com.wolken.wolkenapp.entity.AddProductEntity;
 
 @Component
-public class LoginDAOImpl implements LoginDAO {
+public class GetProductsByTypeDAOImpl implements GetProductsByTypeDAO {
 
 	@Autowired
 	LocalSessionFactoryBean bean;
 	
-	Logger logger = Logger.getLogger("LoginDAOImpl");
+	Logger logger = Logger.getLogger("GetProductsByTypeDAOImpl");
 
-
+	
 	@Override
-	public LoginEntity getByUserName(String userName) {
-		// TODO Auto-generated method stub
+	public List<AddProductEntity> getProductsByType(String productType) {
 		
-		logger.debug("INSIDE getByUserName()");
+		logger.debug("INSIDE getProductsByType() ");
 
 		SessionFactory factory = bean.getObject();
 		Session session = factory.openSession();
 
 		Transaction transaction = session.beginTransaction();
-		Query query = session.createQuery("from LoginEntity le where le.userName =:uName");
-		query.setParameter("uName", userName);
+		Query query = session.createQuery("select ape from AddProductEntity ape where ape.productType =:pType");
+		query.setParameter("pType", productType);
+		
+		List<AddProductEntity> productsList = query.list(); 
 
-		LoginEntity loginEntity = (LoginEntity) query.uniqueResult();
 		transaction.commit();
 		session.close();
 		
-		return loginEntity;
+		return productsList;
+	
 	}
 
 }

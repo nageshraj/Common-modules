@@ -7,78 +7,84 @@
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 
-<style type="text/css">
-body {
-	padding-top: 80px;
-	padding-bottom: 40px;
-	text-align: center;
-}
+<link rel="stylesheet" href="style.css">
 
-.header {
-	width: 100%;
-	position: fixed;
-	background: #333;
-	padding: 10px 0;
-	color: #fff;
-	top: 0;
-}
+<script type="text/javascript">
+	function formValidation() {
+		var uName = document.login.loginUserName;
+		var uPassword = document.login.loginUserPassword;
 
-.footer {
-	position: fixed;
-	left: 0;
-	bottom: 0;
-	width: 100%;
-	background-color: red;
-	color: white;
-	text-align: center;
-}
+		if (userName_validation(uName)) {
+			if (userPassword_validation(uPassword)) {
+				return true;
+			}
+		}
+		return false;
+	}
 
-a {
-	color: white;
-}
+	function userName_validation(uName) {
+		var uNameLength = uName.value.length;
+		var letters = /^[0-9a-zA-Z]+$/;
+		if (uNameLength == 0 || uNameLength<3 || uNameLength>18) {
+			alert("USERNAME MUST BE BETWEEN LENGTH 3-18");
+			return false;
+		} else {
+			if (uName.value.match(letters)) {
+				return true;
+			} else {
+				alert("USERNAME MUST HAVE ONLY ALPHANUMERIC CHARACTERS");
+				return false;
+			}
 
- input[type = submit], input[type = reset] {
-            background-color: grey;
-            border: none;
-            text-decoration: none;
-            color: white;
-            padding: 20px 20px;
-            margin: 20px 20px;
-            cursor: pointer;
-         }
-         
- .headerLeft{
- text-align: left;
- margin-left: 20px;
- }
+		}
 
-.headerRight{
-text-align: right;
-margin-right: 20px;
-}
+	}
 
-</style>
+	function userPassword_validation(uPassword) {
+
+		var uPasswordLength = uPassword.value.length;
+		var passwordFormat = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,18}$/;
+		if (uPassword.value.match(passwordFormat)) {
+			return true;
+
+		} else {
+			alert("PASSWORD MUST HAVE ATLEAST 1 UPPERCASE, 1 DIGIT and 1 LOWERCASE and LENGTH: 8-18");
+			return false;
+		}
+	}
+</script>
+
 </head>
 <body>
 
-<div class="header">
+	<div class="header">
 		<nav>
-		<div class="headerLeft"> <a href="http://localhost:8080/common-module-registration/">HOME </a></div>
-			<div class="headerRight"> <a href="http://localhost:8080/common-module-registration/registrationPage.jsp">REGISTER </a></div> 
+			<div class="headerLeft">
+				<a href="http://localhost:8080/common-module-registration/">HOME
+				</a>
+			</div>
+			<div class="headerRight">
+				<a
+					href="http://localhost:8080/common-module-registration/registrationPage.jsp">REGISTER
+				</a>
+			</div>
+
 		</nav>
 
 	</div>
 
-	<form action="login.do">
-		USERNAME: <input type="text" name="loginUserName"><br><br> PASSWORD: <input
-			type="password" name="loginUserPassword"> <br><input type="reset"
-			value="RESET"> <input type="submit" value="LOGIN">
+	<form action="login.do" name="login"
+		onsubmit="return formValidation();">
+		USERNAME: <input type="text" name="loginUserName"><br> <br>
+		PASSWORD: <input type="password" name="loginUserPassword"> <br>
+		<br> <input type="reset" value="RESET"> <input
+			type="submit" value="LOGIN">
 
 	</form>
-	
-	
+
+
 	<div class="footer">
-		<pre>CONTACT US                                               since 2021                                           © All rights reserved</pre>
+		<pre>CONTACT US                                                 since 2021                                           © All rights reserved</pre>
 	</div>
 
 </body>

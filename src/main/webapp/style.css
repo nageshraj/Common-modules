@@ -1,0 +1,83 @@
+@charset "ISO-8859-1";
+
+body {
+	background-image:
+		url('https://png.pngtree.com/thumb_back/fw800/back_pic/00/04/53/9556248b4747950.png');
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: 100%;
+}
+
+body {
+	padding-top: 80px;
+	padding-bottom: 40px;
+	text-align: center;
+	font-family:courier;
+	font-weight: bold;
+	
+	
+}
+
+button{
+	background-color: #12232E;
+	border: 1px;
+	text-decoration: none;
+	color: white;
+	padding: 10px 10px;
+	margin: 10px 10px;
+	cursor: pointer;
+}
+
+.header {
+	width: 100%;
+	position: fixed;
+	background: #12232E;
+	color: #fff;
+	top: 0;
+	left: 0;
+}
+
+.footer {
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	background:#12232E;
+	color:  #fff;
+	text-align: center;
+}
+
+input[type=submit], input[type=reset] {
+	background-color: #12232E;
+	border: 1px;
+	text-decoration: none;
+	color: white;
+	padding: 10px 10px;
+	margin: 10px 10px;
+	cursor: pointer;
+}
+
+input[type=text],input[type=password],input[type=date]{
+	border: thin;
+	height: 20px;
+}
+
+.headerLeft {
+	text-align: left;
+	margin-left: 20px;
+}
+
+.headerRight {
+	text-align: right;
+	margin-right: 20px;
+}
+
+a {
+	color: white;
+}
+
+table,th,td {
+        padding: 10px;
+        border: 1px solid black;
+        border-collapse: collapse;
+      }
