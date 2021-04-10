@@ -24,41 +24,40 @@ public class AddProductServiceImpl implements AddProductService {
 	@Override
 	public String validateAndAddProduct(AddProductDTO addProductDTO) {
 		// TODO Auto-generated method stub
-		
-		logger.debug("INSIDE validateAndAddProduct() ");
-		
-		if(addProductDTO != null) {
-		
-		AddProductEntity addProductEntity = new AddProductEntity();
-		
-		try {
-			if(addProductDTO.getProductName().length()<3 || addProductDTO.getProductName().length()>18)
-				throw new ProductNameException();
-			else {
-				addProductEntity.setProductName(addProductDTO.getProductName());
-				if(addProductDTO.getProductType().length()<3 || addProductDTO.getProductType().length()>18)
-					throw new ProductTypeException();
-				else {
-					addProductEntity.setProductType(addProductDTO.getProductType());
-					addProductEntity.setProductPrice(addProductDTO.getProductPrice());
-					addProductEntity.setProductQuantity(addProductDTO.getProductQuantity());
-					
-					if(!(addProductDTO.getProductAvailability().equals("YES") || addProductDTO.getProductAvailability().equals("NO")))
-						throw  new ProductAvailabilityException();
 
+		logger.debug("INSIDE validateAndAddProduct() ");
+
+		if (addProductDTO != null) {
+
+			AddProductEntity addProductEntity = new AddProductEntity();
+
+			try {
+				if (addProductDTO.getProductName().length() < 3 || addProductDTO.getProductName().length() > 18)
+					throw new ProductNameException();
+				else {
+					addProductEntity.setProductName(addProductDTO.getProductName());
+					if (addProductDTO.getProductType().length() < 3 || addProductDTO.getProductType().length() > 18)
+						throw new ProductTypeException();
+					else {
+						addProductEntity.setProductType(addProductDTO.getProductType());
+						addProductEntity.setProductPrice(addProductDTO.getProductPrice());
+						addProductEntity.setProductQuantity(addProductDTO.getProductQuantity());
+
+						if (!(addProductDTO.getProductAvailability().equals("YES")
+								|| addProductDTO.getProductAvailability().equals("NO")))
+							throw new ProductAvailabilityException();
+
+					}
 				}
+
+				addProductEntity.setProductAvailability(addProductDTO.getProductAvailability());
+			} catch (ProductNameException | ProductTypeException | ProductAvailabilityException e) {
+				e.toString();
 			}
-		
-		
-		addProductEntity.setProductAvailability(addProductDTO.getProductAvailability());
-		}catch(ProductNameException| ProductTypeException |  ProductAvailabilityException e) {
-			
-		}
-		return addProductDAO.addProduct(addProductEntity);
+			return addProductDAO.addProduct(addProductEntity);
 		}
 		return null;
-		
-		
+
 	}
 
 }

@@ -13,30 +13,33 @@ public class RegistrationServiceImpl implements RegistrationService {
 
 	@Autowired
 	RegistrationDAO registrationDAO;
-	
-	Logger logger = Logger.getLogger("GetProductsByTypeServiceImpl");
 
+	Logger logger = Logger.getLogger("GetProductsByTypeServiceImpl");
 
 	@Override
 	public String validateAndRegisterUser(RegistrationDTO registrationDTO) {
 		// TODO Auto-generated method stub
-		
+
 		logger.debug("INSIDE validateAndRegisterUser()");
 
 		UserEntity userEntity = new UserEntity();
 		userEntity = registrationDAO.getByUserName(registrationDTO.getUserName());
 
 		if (userEntity == null) {
-			userEntity.setUserName(registrationDTO.getUserName());
-			userEntity.setConfirmUserPassword(registrationDTO.getConfirmUserPassword());
-			userEntity.setGender(registrationDTO.getGender());
-			userEntity.setUserDOB(registrationDTO.getUserDOB());
-			userEntity.setUserEmailId(registrationDTO.getUserEmailId());
-			userEntity.setUserPassword(registrationDTO.getUserPassword());
-			userEntity.setUserPhoneNumber(registrationDTO.getUserPhoneNumber());
 
-			return registrationDAO.registerUser(userEntity);
+			UserEntity userEntity1 = new UserEntity();
+			userEntity1.setUserName(registrationDTO.getUserName());
+			userEntity1.setConfirmUserPassword(registrationDTO.getConfirmUserPassword());
+			userEntity1.setGender(registrationDTO.getGender());
+			userEntity1.setUserDOB(registrationDTO.getUserDOB());
+			userEntity1.setUserEmailId(registrationDTO.getUserEmailId());
+			userEntity1.setUserPassword(registrationDTO.getUserPassword());
+			userEntity1.setUserPhoneNumber(registrationDTO.getUserPhoneNumber());
+
+			return registrationDAO.registerUser(userEntity1);
+
 		} else {
+
 			return "USER ALREADY EXISTS";
 		}
 	}

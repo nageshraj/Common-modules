@@ -17,20 +17,18 @@ public class RegistrationController {
 
 	@Autowired
 	RegistrationService registrationService;
-	
+
 	Logger logger = Logger.getLogger("RegistrationController");
-	
-		
+
 	@RequestMapping("/register.do")
-	public String register(@ModelAttribute RegistrationDTO registrationDTO,HttpServletRequest req) {
-		
+	public String register(@ModelAttribute RegistrationDTO registrationDTO, HttpServletRequest req) {
+
 		logger.debug("INSIDE register.do");
-		
+
 		String msg = registrationService.validateAndRegisterUser(registrationDTO);
-		
+
 		req.setAttribute("msg", msg);
-		return "final.jsp";
-		
-		
+		return "loginPage.jsp";
+
 	}
 }
