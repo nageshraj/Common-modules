@@ -12,10 +12,10 @@ import com.wolken.wolkenapp.entity.AddProductEntity;
 
 @Component
 public class AddProductDAOImpl implements AddProductDAO {
-	
+
 	@Autowired
 	LocalSessionFactoryBean bean;
-	
+
 	Logger logger = Logger.getLogger("AddProductDAOImpl");
 
 	@Override
@@ -28,11 +28,11 @@ public class AddProductDAOImpl implements AddProductDAO {
 		session.save(addProductEntity);
 		transaction.commit();
 		session.close();
-		
-		logger.debug("PROUDCT SUCCESSFULLY ADDED");
 
-		return "PROUDCT SUCCESSFULLY ADDED";
-	
+		logger.debug("PRODUCT SUCCESSFULLY ADDED");
+
+		return "PRODUCT SUCCESSFULLY ADDED";
+
 	}
 
 }

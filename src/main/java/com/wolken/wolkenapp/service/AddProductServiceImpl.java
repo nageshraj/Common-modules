@@ -6,8 +6,6 @@ import org.springframework.stereotype.Component;
 
 import com.wolken.wolkenapp.Exception.ProductAvailabilityException;
 import com.wolken.wolkenapp.Exception.ProductNameException;
-import com.wolken.wolkenapp.Exception.ProductPriceException;
-import com.wolken.wolkenapp.Exception.ProductQuantityException;
 import com.wolken.wolkenapp.Exception.ProductTypeException;
 import com.wolken.wolkenapp.dao.AddProductDAO;
 import com.wolken.wolkenapp.dto.AddProductDTO;
@@ -46,11 +44,14 @@ public class AddProductServiceImpl implements AddProductService {
 						if (!(addProductDTO.getProductAvailability().equals("YES")
 								|| addProductDTO.getProductAvailability().equals("NO")))
 							throw new ProductAvailabilityException();
+						else {
+							addProductEntity.setProductAvailability(addProductDTO.getProductAvailability());
+
+						}
 
 					}
 				}
 
-				addProductEntity.setProductAvailability(addProductDTO.getProductAvailability());
 			} catch (ProductNameException | ProductTypeException | ProductAvailabilityException e) {
 				e.toString();
 			}

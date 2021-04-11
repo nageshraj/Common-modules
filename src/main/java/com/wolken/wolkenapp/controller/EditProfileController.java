@@ -18,26 +18,25 @@ public class EditProfileController {
 
 	@Autowired
 	EditProfileService editProfileService;
-	
+
 	Logger logger = Logger.getLogger("EditProfileController");
 
 	@RequestMapping("/editProfile.do")
 	public String editProfile(@ModelAttribute EditProfileDTO editProfileDTO, HttpServletRequest req) {
 
 		editProfileService.validateAndEditProfile(editProfileDTO);
-		
-		return "successfullLogin.jsp";
+
+		return "successfulLogin.jsp";
 
 	}
 
 	@RequestMapping("/getUser.do")
 	public String getUserbyEmail(HttpServletRequest req) {
-		
+
 		logger.debug("INSIDE getUser.do");
 
 		String email = req.getParameter("emailToGetUser");
-		logger.debug("emailToGetUser: "+email);
-		
+		logger.debug("emailToGetUser: " + email);
 
 		EditProfileEntity editProfileEntity = editProfileService.validateAndGetUserByEmail(email);
 		if (editProfileEntity == null) {
